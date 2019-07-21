@@ -1,16 +1,18 @@
 {
   "files": {
-    "main.css": "/RestroPlaza/static/css/main.2cce8147.chunk.css",
-    "main.js": "/RestroPlaza/static/js/main.3e58c289.chunk.js",
-    "main.js.map": "/RestroPlaza/static/js/main.3e58c289.chunk.js.map",
+    "main.css": "/RestroPlaza/static/css/main.36497136.chunk.css",
+    "main.js": "/RestroPlaza/static/js/main.eb3f087d.chunk.js",
+    "main.js.map": "/RestroPlaza/static/js/main.eb3f087d.chunk.js.map",
     "runtime~main.js": "/RestroPlaza/static/js/runtime~main.a999eec3.js",
     "runtime~main.js.map": "/RestroPlaza/static/js/runtime~main.a999eec3.js.map",
-    "static/js/2.b41502e9.chunk.js": "/RestroPlaza/static/js/2.b41502e9.chunk.js",
-    "static/js/2.b41502e9.chunk.js.map": "/RestroPlaza/static/js/2.b41502e9.chunk.js.map",
+    "static/css/2.425b25ca.chunk.css": "/RestroPlaza/static/css/2.425b25ca.chunk.css",
+    "static/js/2.1c2b610c.chunk.js": "/RestroPlaza/static/js/2.1c2b610c.chunk.js",
+    "static/js/2.1c2b610c.chunk.js.map": "/RestroPlaza/static/js/2.1c2b610c.chunk.js.map",
     "index.html": "/RestroPlaza/index.html",
-    "precache-manifest.380b446bc17995e0e137bfa67f6303fb.js": "/RestroPlaza/precache-manifest.380b446bc17995e0e137bfa67f6303fb.js",
+    "precache-manifest.19630b74c831170625463a14a04f781d.js": "/RestroPlaza/precache-manifest.19630b74c831170625463a14a04f781d.js",
     "service-worker.js": "/RestroPlaza/service-worker.js",
-    "static/css/main.2cce8147.chunk.css.map": "/RestroPlaza/static/css/main.2cce8147.chunk.css.map",
-    "static/media/logo.svg": "/RestroPlaza/static/media/logo.5d5d9eef.svg"
+    "static/css/2.425b25ca.chunk.css.map": "/RestroPlaza/static/css/2.425b25ca.chunk.css.map",
+    "static/css/main.36497136.chunk.css.map": "/RestroPlaza/static/css/main.36497136.chunk.css.map",
+    "static/media/font-awesome.min.css": "/RestroPlaza/static/media/fontawesome-webfont.fee66e71.woff"
   }
 }
