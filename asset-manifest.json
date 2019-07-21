@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/RestroPlaza/static/css/main.2cce8147.chunk.css",
+    "main.js": "/RestroPlaza/static/js/main.3e58c289.chunk.js",
+    "main.js.map": "/RestroPlaza/static/js/main.3e58c289.chunk.js.map",
+    "runtime~main.js": "/RestroPlaza/static/js/runtime~main.a999eec3.js",
+    "runtime~main.js.map": "/RestroPlaza/static/js/runtime~main.a999eec3.js.map",
+    "static/js/2.b41502e9.chunk.js": "/RestroPlaza/static/js/2.b41502e9.chunk.js",
+    "static/js/2.b41502e9.chunk.js.map": "/RestroPlaza/static/js/2.b41502e9.chunk.js.map",
+    "index.html": "/RestroPlaza/index.html",
+    "precache-manifest.380b446bc17995e0e137bfa67f6303fb.js": "/RestroPlaza/precache-manifest.380b446bc17995e0e137bfa67f6303fb.js",
+    "service-worker.js": "/RestroPlaza/service-worker.js",
+    "static/css/main.2cce8147.chunk.css.map": "/RestroPlaza/static/css/main.2cce8147.chunk.css.map",
+    "static/media/logo.svg": "/RestroPlaza/static/media/logo.5d5d9eef.svg"
+  }
+}
