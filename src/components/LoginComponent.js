@@ -41,7 +41,7 @@ class Login extends Component {
                             <input type="text" placeholder="username" name="username" value={this.state.username} onChange={this.handleChange}></input>
                         </FormGroup>
                         <FormGroup>
-                            <input type="password" name="password" value={this.state.password} onChange={this.handleChange}></input>
+                            <input type="password" name="password" value={this.state.password} onChange={this.handleChange} placeholder="password"></input>
                         </FormGroup>
                         <FormGroup>
                             <input type="submit" className="text-primary"></input>

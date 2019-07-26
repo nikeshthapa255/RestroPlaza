@@ -5,7 +5,7 @@ import Header from './NavComponent';
 import AboutUs from './AboutUsComponent';
 import Home from "./HomeComponent";
 import CreateUser from './CreateUser';
-import { getRestaurants, fetchLogin, fetchLogin1 } from '../api/fetchWork';
+import { getRestaurants, fetchLogin, fetchLogin1, getOwnerRestaurant } from '../api/fetchWork';
 
 
 class Main extends Component {
@@ -14,7 +14,8 @@ class Main extends Component {
         this.state = {
             token: this.getCookie("token"),
             restaurants: [],
-            isLogin: false
+            isLogin: false,
+            MainRestro: null
         }
         this.setCookie = this.setCookie.bind(this);
         this.getCookie = this.getCookie.bind(this);
@@ -23,6 +24,8 @@ class Main extends Component {
         this.logIn = this.logIn.bind(this);
         this.logInFor1 = this.logInFor1.bind(this);
         this.setToken = this.setToken.bind(this);
+        this.setMainRestro = this.setMainRestro.bind(this);
+
 
     }
 
@@ -51,17 +54,18 @@ class Main extends Component {
 
 
     saveRestros(restro) {
-        this.setState({ restaurants: [...restro], isLogin: true })
+        this.setState({
+            restaurants: [...restro]
+        })
     }
 
     logIn(username, password) {
-        fetchLogin(username, password, this.setCookie, this.setToken, this.saveRestros)
+        fetchLogin(username, password, this.setCookie, this.setToken, this.saveRestros, this.setMainRestro)
     }
 
-    logInFor1(username, password, data, token) {
-        fetchLogin1(username, password, this.setCookie, this.setToken, this.saveRestros, data)
+    logInFor1(username, password, data) {
+        fetchLogin1(username, password, this.setCookie, this.setToken, data)
     }
-
 
     setToken(data) {
         this.setState({ token: data })
@@ -73,36 +77,41 @@ class Main extends Component {
 
         this.setState({
             isLogin: false,
-            restaurants: [],
-            token: ""
+            token: "",
+            MainRestro: null
         })
 
     }
+
+    setMainRestro = (restro)=>{
+        this.setState({
+            MainRestro: restro,
+            isLogin: true
+        })
+    }
     componentDidMount() {
-        if (!this.state.isLogin)
-            getRestaurants(this.state.token, this.saveRestros)
+        getRestaurants(this.saveRestros)
+        if (!this.state.isLogin && this.state.token )
+            getOwnerRestaurant(this.state.token, this.setMainRestro)
     }
 
 
     render() {
         return (
             <>
-
-
-                <div>
-                </div>
                 <Header logout={this.logOut} isLogin={this.state.isLogin} />
                 <Switch>
                     <Route exact path='/home' component={
                         () => <Home
+                            MainRestro = {this.state.MainRestro}
                             saveRestros={this.saveRestros}
                             restaurants={this.state.restaurants}
                             token={this.state.token} isLogin={this.state.isLogin} />} />
                     <Route exact path="/login" component={() => <Login login={this.logIn} />} />
                     <Route exact path="/aboutus" component={AboutUs} />
                     <Route exact path="/createUser" component={
-                        () => <CreateUser login={this.logInFor1} token={this.state.token} isLogin={this.state.isLogin} />} 
-                        />
+                        () => <CreateUser login={this.logInFor1} token={this.state.token} isLogin={this.state.isLogin} saveRestros={this.saveRestros} />}
+                    />
                     <Redirect to="/home" />
                 </Switch>
             </>

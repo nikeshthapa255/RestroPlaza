@@ -1,9 +1,11 @@
-export const baseUrl="http://127.0.0.1:8000/";
+export const baseUrl = "https://restroplaza.herokuapp.com";
 
-export const restaurantUrl="http://127.0.0.1:8000/restaurant/";
+export const base = "https://restroplaza.herokuapp.com/"
 
-export const loginUrl="http://127.0.0.1:8000/login/";
+export const restaurantUrl = base + "restaurant/";
 
-export const createUserUrl="http://127.0.0.1:8000/user/";
+export const loginUrl = base + "login/";
 
+export const createUserUrl = base + "/user/";
 
+export const restaurantByToken = base + "restaurantByToken/"

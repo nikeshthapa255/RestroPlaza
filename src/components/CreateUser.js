@@ -7,7 +7,7 @@ import {
     Input,
     Col
 } from "reactstrap";
-import { postUser, postRestaurant } from '../api/fetchWork';
+import { postUser,  getRestaurants } from '../api/fetchWork';
 
 class CreateUser extends Component {
     constructor(props) {
@@ -62,6 +62,9 @@ class CreateUser extends Component {
         this.setState({
             image: e.target.files[0]
         })
+    }
+    componentDidMount() {
+        getRestaurants(this.props.saveRestro)
     }
     render() {
         if ((this.state.id == -1) && (this.state.isSubmited))
