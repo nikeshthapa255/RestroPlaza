@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/RestroPlaza/precache-manifest.613968b9557305b99693bf3e2ad3fd0e.js"
+  "/RestroPlaza/precache-manifest.0ded1ebecb6817a0c6f3a40b60f44142.js"
 );
 
 self.addEventListener('message', (event) => {

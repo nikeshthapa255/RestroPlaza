@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "200a97590bc56261c2501ff1e253c9ed",
+    "revision": "6dc485d3e85f88ba5f66a1ccb7fe4a65",
     "url": "/RestroPlaza/index.html"
   },
   {
-    "revision": "ae4f490f8c49ce4a9023",
+    "revision": "3ee7ed69d2c8c9672e10",
     "url": "/RestroPlaza/static/css/2.425b25ca.chunk.css"
   },
   {
-    "revision": "bc80908b52a4ca970bab",
+    "revision": "7a7b87cf400a15d4ea58",
     "url": "/RestroPlaza/static/css/main.36497136.chunk.css"
   },
   {
-    "revision": "ae4f490f8c49ce4a9023",
-    "url": "/RestroPlaza/static/js/2.892671dd.chunk.js"
+    "revision": "3ee7ed69d2c8c9672e10",
+    "url": "/RestroPlaza/static/js/2.bd2883db.chunk.js"
   },
   {
-    "revision": "bc80908b52a4ca970bab",
-    "url": "/RestroPlaza/static/js/main.1533d9bb.chunk.js"
+    "revision": "7a7b87cf400a15d4ea58",
+    "url": "/RestroPlaza/static/js/main.582b545f.chunk.js"
   },
   {
     "revision": "86345318a9ffabb44da2",
