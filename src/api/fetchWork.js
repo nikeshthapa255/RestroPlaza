@@ -1,4 +1,4 @@
-import { loginUrl, restaurantUrl, createUserUrl,  restaurantByToken } from './baseUrl'
+import { loginUrl, restaurantUrl, createUserUrl, restaurantByToken, dishPostUrl } from './baseUrl'
 import axios from 'axios';
 
 export const postRestaurant = (data, token) => {
@@ -12,6 +12,40 @@ export const postRestaurant = (data, token) => {
     )
         .then(response => {
             alert("Resturant Enrolled" + JSON.stringify(response))
+        })
+        .catch(function (error) {
+            if (error.response) {
+                // The request was made and the server responded with a status code
+                // that falls out of the range of 2xx
+                console.log(error.response.data);
+                console.log(error.response.status);
+                console.log(error.response.headers);
+            } else if (error.request) {
+                // The request was made but no response was received
+                // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+                // http.ClientRequest in node.js
+                console.log(error.request);
+            } else {
+                // Something happened in setting up the request that triggered an Error
+                console.log('Error', error.message);
+            }
+            console.log(error.config);
+        })
+}
+
+export const postDish = (Rpk, data, token) => {
+    console.log("ID-" + Rpk)
+    console.log("dish url " + dishPostUrl(Rpk))
+    axios.post(dishPostUrl(Rpk), data,
+        {
+            headers: {
+                "content-type": "application/json",
+                "authorization": "Token " + token,
+            }
+        }
+    )
+        .then(response => {
+            console.log("Dish got it" + JSON.stringify(response))
         })
         .catch(function (error) {
             if (error.response) {
@@ -128,7 +162,7 @@ export const fetchLogin = (username, password, setCookie, setToken, saveRestros,
             setCookie("token", response.data.token, 10);
             setToken(response.data.token);
             getRestaurants(saveRestros);
-            getOwnerRestaurant(response.data.token,setMainRestro);
+            getOwnerRestaurant(response.data.token, setMainRestro);
             console.log(response.data.token);
             return response.data
         })
@@ -153,9 +187,9 @@ export const fetchLogin = (username, password, setCookie, setToken, saveRestros,
 
 }
 
-export const getOwnerRestaurant = (token, setItems) =>{
-    console.log("Token "+ token)
-    axios.get(restaurantByToken ,
+export const getOwnerRestaurant = (token, setItems) => {
+    console.log("Token " + token)
+    axios.get(restaurantByToken,
         {
             headers: {
                 "content-type": "application/json",
@@ -188,7 +222,7 @@ export const getOwnerRestaurant = (token, setItems) =>{
         })
 }
 
-export const getRestaurants = ( saveRestro) => {
+export const getRestaurants = (saveRestro) => {
 
 
     axios({

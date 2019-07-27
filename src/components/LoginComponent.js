@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Row, Form, FormGroup } from 'reactstrap';
-import { fetchLogin } from "../api/fetchWork";
 
 class Login extends Component {
     constructor(props) {

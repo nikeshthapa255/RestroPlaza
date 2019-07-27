@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Redirect, Route, Link } from 'react-router-dom';
+import { Switch, Redirect, Route } from 'react-router-dom';
 import Login from './LoginComponent';
 import Header from './NavComponent';
 import AboutUs from './AboutUsComponent';
@@ -83,7 +83,7 @@ class Main extends Component {
 
     }
 
-    setMainRestro = (restro)=>{
+    setMainRestro = (restro) => {
         this.setState({
             MainRestro: restro,
             isLogin: true
@@ -91,7 +91,7 @@ class Main extends Component {
     }
     componentDidMount() {
         getRestaurants(this.saveRestros)
-        if (!this.state.isLogin && this.state.token )
+        if (!this.state.isLogin && this.state.token)
             getOwnerRestaurant(this.state.token, this.setMainRestro)
     }
 
@@ -103,10 +103,11 @@ class Main extends Component {
                 <Switch>
                     <Route exact path='/home' component={
                         () => <Home
-                            MainRestro = {this.state.MainRestro}
+                            MainRestro={this.state.MainRestro}
                             saveRestros={this.saveRestros}
                             restaurants={this.state.restaurants}
-                            token={this.state.token} isLogin={this.state.isLogin} />} />
+                            token={this.state.token}
+                            isLogin={this.state.isLogin} />} />
                     <Route exact path="/login" component={() => <Login login={this.logIn} />} />
                     <Route exact path="/aboutus" component={AboutUs} />
                     <Route exact path="/createUser" component={

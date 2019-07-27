@@ -1,7 +1,6 @@
 import React from 'react';
 import {
     Jumbotron,
-    Button
 } from 'reactstrap';
 
 const AboutUs = () => {
@@ -14,9 +13,9 @@ const AboutUs = () => {
                 <hr className="my-2" />
                 <p className="lead">
                     <h4>For more information</h4>
-                    <strong>GitHub-</strong><a href="#">https://github.com/nikeshthapa255</a>
+                    <strong><a href="https://github.com/nikeshthapa255">GitHub</a></strong>
                     <br></br>
-                    <strong>Email-</strong><a href="mailto: nikeshthapa255@gmail.com">Email link</a>
+                    <strong><a href="mailto: nikeshthapa255@gmail.com">Email link</a></strong>
                 </p>
             </Jumbotron>
         </div>

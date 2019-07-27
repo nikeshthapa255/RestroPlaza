@@ -67,7 +67,7 @@ class CreateUser extends Component {
         getRestaurants(this.props.saveRestro)
     }
     render() {
-        if ((this.state.id == -1) && (this.state.isSubmited))
+        if ((this.state.id === -1) && (this.state.isSubmited))
             return <Loading />
         else
             return (
