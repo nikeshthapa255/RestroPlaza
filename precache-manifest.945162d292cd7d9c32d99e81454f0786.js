@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "94ac0c0bb96345d2680e21880ef716d4",
+    "revision": "cb888a2bc359a4c1c8e5a92cb33a9b36",
     "url": "/RestroPlaza/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/RestroPlaza/static/css/2.425b25ca.chunk.css"
   },
   {
-    "revision": "0a1d96ea2bf7556da66c",
+    "revision": "0214c04846006011b421",
     "url": "/RestroPlaza/static/css/main.36497136.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/RestroPlaza/static/js/2.a5ae5016.chunk.js"
   },
   {
-    "revision": "0a1d96ea2bf7556da66c",
-    "url": "/RestroPlaza/static/js/main.59134b04.chunk.js"
+    "revision": "0214c04846006011b421",
+    "url": "/RestroPlaza/static/js/main.54a64200.chunk.js"
   },
   {
     "revision": "86345318a9ffabb44da2",
