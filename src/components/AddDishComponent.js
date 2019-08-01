@@ -38,7 +38,8 @@ class AddDish extends Component {
         event.preventDefault();
         postDish(this.props.MainRestro.id,
             this.createData(),
-            this.props.token)
+            this.props.token,
+            this.props.setMainRestro)
         this.toggle()
     }
     handleImageChange = (e) => {
@@ -55,7 +56,7 @@ class AddDish extends Component {
     render() {
         console.log(this.props.MainRestro.id)
         return (
-            <div className="col-6 col-md-2 ml-auto">
+            <div >
                 <button className="btn btn-dark " onClick={this.toggle}><i className="fa fa-plus text-danger" aria-hidden="true"></i></button>
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                     <ModalHeader toggle={this.toggle}>Enter Dish Elements</ModalHeader>

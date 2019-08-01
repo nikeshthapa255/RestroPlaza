@@ -5,6 +5,7 @@ import { baseUrl } from '../api/baseUrl';
 import { Media } from "reactstrap";
 import Menu from './MenuComponent';
 import AddDish from "./AddDishComponent";
+import Loading from './LoadingComponent';
 
 class Home extends Component {
     constructor(props) {
@@ -17,6 +18,39 @@ class Home extends Component {
 
 
     render() {
+        const ForMain = () => {
+            if (this.props.isLoadingMain) {
+                return <Loading />
+            }
+            else {
+                return (<>
+
+                    <h1 className="display-3">Welcome</h1>
+                    <div className="lead">
+                        <Media>
+                            <Media left className="mx-3">
+                                <Media object src={baseUrl + this.props.MainRestro.image} width="100" height="100" alt="Owner Restro" />
+                            </Media>
+                            <Media body>
+                                <div className="row">
+                                    <Media heading className="col-3">
+                                        {this.props.MainRestro.restaurantName}</Media>
+                                    <abbr title="ADD NEW DISH!" className="col-6 col-md-2 ml-auto">
+                                        < AddDish
+                                            MainRestro={this.props.MainRestro}
+                                            token={this.props.token}
+                                            setMainRestro={this.props.setMainRestro} />
+                                    </abbr>
+                                </div>
+                                {this.props.MainRestro.vision}
+                            </Media>
+                        </Media>
+                        <Menu dishes={this.props.MainRestro.dish} />
+                    </div>
+                </>)
+
+            }
+        }
 
         return (
             <div className="container">
@@ -25,26 +59,7 @@ class Home extends Component {
                 <div className="jumbotron">
 
                     {this.props.isLogin ?
-                        (<>
-
-                            <h1 className="display-3">Welcome</h1>
-                            <div className="lead">
-                                <Media>
-                                    <Media left className="mx-3">
-                                        <Media object src={baseUrl + this.props.MainRestro.image} width="100" height="100" alt="Owner Restro" />
-                                    </Media>
-                                    <Media body>
-                                        <div className="row">
-                                            <Media heading className="col-3">
-                                                {this.props.MainRestro.restaurantName}</Media>
-                                            < AddDish MainRestro={this.props.MainRestro} token={this.props.token} />
-                                        </div>
-                                        {this.props.MainRestro.vision}
-                                    </Media>
-                                </Media>
-                                <Menu dishes={this.props.MainRestro.dish} />
-                            </div>
-                        </>)
+                        <ForMain />
                         : (<h1 className="display-3">Please enter your login credentials</h1>)
                     }
 
@@ -54,8 +69,11 @@ class Home extends Component {
 
                 <div className="row">
                     {this.props.restaurants.map((restro) => {
-                        return (
-                            <ShowRestro key={restro.id} image={baseUrl + restro.image} subtitle="Owner" title={restro.resturantName} text={restro.vision} />)
+                        if (this.props.isLoadingRestro)
+                            return <Loading />
+                        else
+                            return (
+                                <ShowRestro key={restro.id} image={baseUrl + restro.image} subtitle="Owner" title={restro.restaurantName} text={restro.vision} />)
                     })}
                 </div>
             </div>

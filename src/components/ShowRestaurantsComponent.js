@@ -19,7 +19,7 @@ class ShowRestro extends Component {
                 <CardImg top width="100%" height="150" src={this.props.image} alt="Ower Image"></CardImg>
                 <CardBody>
                     <CardTitle>{this.props.title}</CardTitle>
-                    <CardSubtitle>{this.props.subtitle}</CardSubtitle>
+                    <CardSubtitle></CardSubtitle>
                     <CardText>{this.props.text}</CardText>
                 </CardBody>
             </Card>

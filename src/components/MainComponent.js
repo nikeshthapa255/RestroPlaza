@@ -15,8 +15,12 @@ class Main extends Component {
             token: this.getCookie("token"),
             restaurants: [],
             isLogin: false,
-            MainRestro: null
+            MainRestro: null,
+            restroLoading : false,
+            mainLoading : false
         }
+        this.isLoadingMain=this.isLoadingMain.bind(this)
+        this.isLoadingRestro=this.isLoadingRestro.bind(this)
         this.setCookie = this.setCookie.bind(this);
         this.getCookie = this.getCookie.bind(this);
         this.saveRestros = this.saveRestros.bind(this);
@@ -28,6 +32,16 @@ class Main extends Component {
 
 
     }
+    isLoadingRestro(){
+        this.setState({
+            restroLoading: true
+        })
+    }
+    isLoadingMain(){
+        this.setState({
+            mainLoading: true
+        })
+    }
 
     setCookie(cname, cvalue, exdays) {
         var d = new Date();
@@ -35,6 +49,7 @@ class Main extends Component {
         var expires = "expires=" + d.toUTCString();
         document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
     }
+
 
     getCookie(cname) {
         var name = cname + "=";
@@ -90,9 +105,9 @@ class Main extends Component {
         })
     }
     componentDidMount() {
-        getRestaurants(this.saveRestros)
+        getRestaurants(this.saveRestros, this.isLoadingRestro)
         if (!this.state.isLogin && this.state.token)
-            getOwnerRestaurant(this.state.token, this.setMainRestro)
+            getOwnerRestaurant(this.state.token, this.setMainRestro, this.isLoadingMain)
     }
 
 
@@ -103,7 +118,10 @@ class Main extends Component {
                 <Switch>
                     <Route exact path='/home' component={
                         () => <Home
+                            isLoadingMain={this.state.isLoadingMain}
+                            isLoadingRestro={this.state.isLoadingRestro}
                             MainRestro={this.state.MainRestro}
+                            setMainRestro={this.setMainRestro}
                             saveRestros={this.saveRestros}
                             restaurants={this.state.restaurants}
                             token={this.state.token}

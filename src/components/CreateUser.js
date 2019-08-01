@@ -56,7 +56,7 @@ class CreateUser extends Component {
                 id: value
             });
             return this.createData()
-        }, (data) => this.props.login(this.state.username, this.state.password, data), this.props.isLogin, this.props.token)
+        }, (data) => this.props.login(this.state.username, this.state.password, data), this.props.isLogin, this.props.token, this.props.saveRestro)
     }
     handleImageChange = (e) => {
         this.setState({

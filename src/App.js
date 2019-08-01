@@ -5,13 +5,10 @@ import Main from './components/MainComponent';
 
 
 function App(props) {
-  
+
   return (
     <BrowserRouter>
-    <div>
-        <h1>Ntc React app</h1>
-        <Main/>
-    </div>
+      <Main />
     </BrowserRouter>
   );
 }

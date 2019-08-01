@@ -1,7 +1,7 @@
 import { loginUrl, restaurantUrl, createUserUrl, restaurantByToken, dishPostUrl } from './baseUrl'
 import axios from 'axios';
 
-export const postRestaurant = (data, token) => {
+export const postRestaurant = (data, token, saveRestro) => {
     axios.post(restaurantUrl, data,
         {
             headers: {
@@ -12,6 +12,7 @@ export const postRestaurant = (data, token) => {
     )
         .then(response => {
             alert("Resturant Enrolled" + JSON.stringify(response))
+            getRestaurants(saveRestro)
         })
         .catch(function (error) {
             if (error.response) {
@@ -33,7 +34,7 @@ export const postRestaurant = (data, token) => {
         })
 }
 
-export const postDish = (Rpk, data, token) => {
+export const postDish = (Rpk, data, token, setMainRestro) => {
     console.log("ID-" + Rpk)
     console.log("dish url " + dishPostUrl(Rpk))
     axios.post(dishPostUrl(Rpk), data,
@@ -46,6 +47,7 @@ export const postDish = (Rpk, data, token) => {
     )
         .then(response => {
             console.log("Dish got it" + JSON.stringify(response))
+            getOwnerRestaurant(token, setMainRestro)
         })
         .catch(function (error) {
             if (error.response) {
@@ -67,7 +69,7 @@ export const postDish = (Rpk, data, token) => {
         })
 }
 
-export const postUser = (username, password, email, setId, login, isLogin, token) => {
+export const postUser = (username, password, email, setId, login, isLogin, token, saveRestro) => {
     axios.post(createUserUrl, {
         username: username,
         password: password,
@@ -81,7 +83,7 @@ export const postUser = (username, password, email, setId, login, isLogin, token
     )
         .then(response => {
             if (isLogin)
-                postRestaurant(setId(response.data.id), token)
+                postRestaurant(setId(response.data.id), token, saveRestro)
             else
                 login(setId(response.data.id));
         })
@@ -187,7 +189,7 @@ export const fetchLogin = (username, password, setCookie, setToken, saveRestros,
 
 }
 
-export const getOwnerRestaurant = (token, setItems) => {
+export const getOwnerRestaurant = (token, setItems, isLoading ) => {
     console.log("Token " + token)
     axios.get(restaurantByToken,
         {
@@ -200,6 +202,7 @@ export const getOwnerRestaurant = (token, setItems) => {
         .then(response => {
             console.log(response.data);
             setItems(response.data);
+            isLoading();
             return response.data
         })
         .catch(function (error) {
@@ -222,7 +225,7 @@ export const getOwnerRestaurant = (token, setItems) => {
         })
 }
 
-export const getRestaurants = (saveRestro) => {
+export const getRestaurants = (saveRestro, isLoading) => {
 
 
     axios({
@@ -234,6 +237,7 @@ export const getRestaurants = (saveRestro) => {
     }).then(response => {
         console.log(response.data)
         saveRestro(response.data)
+        isLoading()
         return response.data;
     })
         .catch(function (error) {

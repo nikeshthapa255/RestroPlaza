@@ -16,7 +16,7 @@ const Menu = (props) => {
     const menu = props.dishes.map((dish) => {
         ch += 1
         return (
-            <Toast className={options[ch % lenght] + " col-12 col-md-6 "}>
+            <Toast key={dish.id} className={options[ch % lenght] + " col-12 col-md-6 "}>
                 <ToastBody>
                     <Media>
                         <Media left className="mx-1" >
