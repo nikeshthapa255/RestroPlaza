@@ -1,3 +1,16 @@
+## Introduction
+
+It's a restaurant management application, where restaurant owners can add menu and their restaurants.
+## Technologies
+### React.js
+In this repository react application is present which handels the front end.
+### Django[Link](https://github.com/nikeshthapa255/RestroPlaza-django).
+
+It contains the backend of the project. Where all restAPI request by frontend is responded.
+
+
+## Installation Guide
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
