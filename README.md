@@ -1,6 +1,6 @@
 ## Introduction
 
-It's a restaurant management application, where restaurant owners can add menu and their restaurants.
+It's a restaurant management application, where restaurant owners can add about their restaurants, staff and menu.
 ## Technologies
 ### React.js
 In this repository react application is present which handels the front end.
